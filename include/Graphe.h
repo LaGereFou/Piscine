@@ -15,6 +15,7 @@ class Graphe
         int &getordre();
         std::vector<Aretes> &getaretes();
         std::string &getnom();
+        int &getnbaretes();
 
         ///Fonctions
         void recuperation();
@@ -25,6 +26,8 @@ class Graphe
         std::string m_nom;
         int m_ordre;
         std::vector<Aretes> m_aretes;
+        int m_nbaretes;
+
 };
 
 #endif // GRAPHE_H

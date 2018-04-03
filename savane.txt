@@ -1,0 +1,23 @@
+14
+21
+Vegetaux 30 400 Elephant 20 300
+Vegetaux 30 400 Babouin 20 300
+Vegetaux 30 400 Zebre 20 300
+Vegetaux 30 400 Gazelle 20 300
+Vegetaux 30 400 Phacochere 20 300
+Vegetaux 30 400 Gnou 20 300
+Vegetaux 30 400 Buffle 20 300
+Vegetaux 30 400 Fourmi 20 300
+Vegetaux 30 400 Hippopotame 20 300
+Buffle 30 400 Lion 20 300
+Gnou 30 400 Lion 20 300
+Gnou 30 400 Leopard 20 300
+Phacochere 30 400 Lion 20 300
+Phacochere 30 400 Leopard 20 300
+Phacochere 30 400 Guepard 20 300
+Phacochere 30 400 Hyene 20 300
+Zebre 30 400 Lion 20 300
+Gazelle 30 400 Lion 20 300
+Gazelle 30 400 Leopard 20 300
+Gazelle 30 400 Guepard 20 300
+Gazelle 30 400 Hyene 20 300
