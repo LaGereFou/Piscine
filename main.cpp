@@ -1,5 +1,5 @@
 #include <iostream>
-<<<<<<< HEAD
+#include <fstream>
 #include "include/Graphe.h"
 #include <allegro.h>
 #include <time.h>
@@ -8,18 +8,17 @@
 #include <math.h>
 
 using namespace std;
-void menu(BITMAP*buffer,BITMAP*main,BITMAP*menus,BITMAP*collisionmenus,BITMAP*regles);
+void graphe_1();
+void menu(BITMAP*buffer,BITMAP*menus,BITMAP*collisionmenus);
 int main()
 {
     //declaration des variables
     int s,h,d;// Coordonnées mouse et variable play musique
     BITMAP*menus;// Page menu
     BITMAP*collisionmenus;// Page de collision menu
-    BITMAP*main;// Curseur sangoku
     BITMAP*buffer;// Buffer
     MIDI*music;// Musique du générique
     int bleu,vert,rouge;// Couleurs pour getpixels
-    BITMAP *regles;// Page avec les règles du jeu
 
 
     // Il y aura du hasard
@@ -82,28 +81,59 @@ int main()
     bleu=makecol(0,0,255);
 
 
-    //boucle de jeu
-    while(!(getpixel(collisionmenus,s,h)==rouge))
-    {
-        if(mouse_b&1)
-        {
-            s=mouse_x;
-            h=mouse_y;
-        }
-
-        menu(buffer,main,menus,collisionmenus,regles);// Appel du menu
+        menu(buffer,menus,collisionmenus);// Appel du menu
 
 
-    }
-=======
-#include "Graphe.h"
-#include "Aretes.h"
-#include "Sommet.h"
-#include <vector>
-#include <string>
 
-int main()
+
+    return 0;
+
+} END_OF_MAIN();
+
+/// MENU DU JEU
+void menu(BITMAP*buffer,BITMAP*menus,BITMAP*collisionmenus)
 {
+    int a,b,c=0;// coordonnées de souris et getpixel
+    int onetime = 0;
+
+
+    blit(menus,buffer,0,0,0,0,SCREEN_W,SCREEN_H);
+    if(mouse_b&1 )
+    {
+        a=mouse_x;
+        b=mouse_y;
+        c=getpixel(collisionmenus,a,b);
+    }
+
+    //choix du menus
+
+
+    if( c == makecol(255,0,0) && onetime==0 )
+    {
+        clear_bitmap(buffer);
+        graphe_1();
+        onetime=1;
+    }
+    else if( c == makecol(0,255,0) && onetime==0 )
+    {
+        std::cout << " Deuxieme graphe" << std::endl;
+        onetime=1;
+    }
+    else if( c == makecol(0,0,255) && onetime==0)
+    {
+        std::cout << " troisieme graphe" << std::endl;
+        onetime=1;
+    }
+
+    blit(buffer,screen,0,0,0,0,SCREEN_W,SCREEN_H);
+    clear_bitmap(buffer);
+
+
+}
+
+void graphe_1()
+{
+
     std::vector<Aretes> test;
     Graphe a;
     int cmp = 1;
@@ -124,52 +154,5 @@ int main()
 
     }
     a.sauvegarde();
-
-
->>>>>>> 9ecc2ed9e1a608b48b81998168922fb7a243d6fa
-    return 0;
-
-} END_OF_MAIN();
-
-/// MENU DU JEU
-void menu(BITMAP*buffer,BITMAP*main,BITMAP*menus,BITMAP*collisionmenus,BITMAP*regles)
-{
-
-    blit(menus,buffer,0,0,0,0,SCREEN_W,SCREEN_H);
-    int a,b,c;// coordonnées de souris et getpixel
-
-    draw_sprite(buffer,main,mouse_x-25,mouse_y-30);
-
-
-    if(mouse_b&1)
-    {
-        a=mouse_x;
-        b=mouse_y;
-        c=getpixel(collisionmenus,a,b);
-    }
-
-    //choix du menus
-    switch(c)
-    {
-    case 255:
-
-        clear_bitmap(buffer);
-
-        break;
-
-    case 65680:
-
-        break;
-
-
-
-
-
-
-    }
-
-    blit(buffer,screen,0,0,0,0,SCREEN_W,SCREEN_H);
-    clear_bitmap(buffer);
-
 
 }

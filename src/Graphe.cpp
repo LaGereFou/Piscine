@@ -69,15 +69,14 @@ void Graphe::sauvegarde()
 
 void Graphe::recuperation()
 {
-<<<<<<< HEAD
+
     std::ifstream fichier(m_nom  + ".txt");
-=======
+
     Sommet s1, s2;
     Aretes b;
     unsigned int cmp = 1;
 
-    std::ifstream fichier(m_nom + ".txt");
->>>>>>> 9ecc2ed9e1a608b48b81998168922fb7a243d6fa
+
 
     if(!fichier)
     {
