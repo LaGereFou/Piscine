@@ -1,8 +1,13 @@
-#include "Graphe.h"
-#include <vector>
-#include "Aretes.h"
-#include <fstream>
 #include <iostream>
+#include <fstream>
+#include "../include/Graphe.h"
+#include "../include/Aretes.h"
+#include <allegro.h>
+#include <time.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+#include <vector>
 #include <string>
 
 Graphe::Graphe()
@@ -44,7 +49,7 @@ void Graphe::sauvegarde()
 
 void Graphe::recuperation()
 {
-    std::ifstream fichier("president.txt");
+    std::ifstream fichier(m_nom  + ".txt");
 
     if(!fichier)
     {

@@ -1,6 +1,6 @@
 #ifndef SOMMET_H
 #define SOMMET_H
-
+#include <allegro.h>
 #include <string>
 
 class Sommet

@@ -1,6 +1,6 @@
 #ifndef GRAPHE_H
 #define GRAPHE_H
-
+#include <allegro.h>
 #include <vector>
 #include "Aretes.h"
 #include <string>

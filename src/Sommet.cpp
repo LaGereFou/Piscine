@@ -1,4 +1,5 @@
-#include "Sommet.h"
+#include "../include/Sommet.h"
+#include <allegro.h>
 
 Sommet::Sommet()
 {
