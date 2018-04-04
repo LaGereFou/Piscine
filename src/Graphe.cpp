@@ -103,7 +103,7 @@ void Graphe::recuperation()
 
     }
 
-    fichier.close();
+/*    fichier.close();
 
     for (int i =0; i< 11*m_nbaretes; i++)
     {
@@ -117,6 +117,6 @@ void Graphe::recuperation()
 
         cmp++;
 
-    }
+    }*/
 
 }
