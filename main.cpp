@@ -11,20 +11,27 @@
 using namespace std;
 
 void graphe_1();
+void graphe_2();
+void graphe_3();
 void menu();
 void init_allegro();
+void tracerarete(BITMAP *fond, BITMAP *sommet1, BITMAP *sommet2);
+void tracergraphe(BITMAP *fond);
 
 
 
 int main()
 {
-
+Graphe a;
+a.recuperation();
 
     //initialisation allegro
     init_allegro();
 
     /** Il y aura du hasard
     srand(time(NULL));**/
+
+
 
     menu();// Appel du menu
 
@@ -117,21 +124,29 @@ void menu()
 
 
         //choix du menus
-        if( c == rouge )
+        if( a > 115 && a < 370 && b > 230 && b <300 )
         {
             clear_bitmap(screen);
             graphe_1();
             c = makecol(0,0,0);
+            a = 0;
+            b = 0;
         }
-        else if( c == vert)
+        else if( a > 115 && a < 370 && b > 185 && b < 385)
         {
-            std::cout << " Deuxieme graphe" << std::endl;
             clear_bitmap(screen);
+            graphe_2();
+            a = 0;
+            b = 0;
+
         }
-        else if( c == vert)
+        else if( a > 115 && a < 370  && b > 410 && b < 475)
         {
-            std::cout << " troisieme graphe" << std::endl;
             clear_bitmap(screen);
+            graphe_3();
+            a = 0;
+            b = 0;
+
         }
 
 
@@ -251,6 +266,8 @@ void graphe_1()
     BITMAP* savane;
     BITMAP* Menu_sommets;
 
+
+
     //initialisation des bitmaps
     savane = load_bitmap("Images/Savane.bmp", NULL);
     if(!savane)
@@ -275,11 +292,12 @@ void graphe_1()
 
     while( test != true && !key[KEY_ESC])
     {
-                                std::cout << "okk"<< std::endl;
 
         //Affichage fond de graphe
         blit(savane, buffer, 0,0,0,0, SCREEN_W, SCREEN_H);
         blit(buffer,screen, 0,0,0,0, SCREEN_W, SCREEN_H);
+
+        a.tracergraphe(savane);
 
 
         if(mouse_b&1)
@@ -323,3 +341,18 @@ void graphe_1()
 
     clear_bitmap(screen);
 }
+
+
+void graphe_2()
+{
+    std::cout << "graphe 2" << std::endl;
+}
+
+void graphe_3()
+{
+    std::cout << "graphe 3" << std::endl;
+}
+
+
+
+

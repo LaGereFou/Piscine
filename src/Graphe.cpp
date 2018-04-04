@@ -120,3 +120,64 @@ void Graphe::recuperation()
     }*/
 
 }
+
+
+void Graphe::tracerarete(BITMAP *fond, BITMAP *sommet1, BITMAP *sommet2)
+{
+    int x1, y1, x2, y2, i;
+    x1=getaretes()[i].gets1().getx();
+    y1=getaretes()[i].gets1().gety();
+    x2=getaretes()[i].gets2().getx();
+    y2=getaretes()[i].gets2().gety();
+    blit(sommet1, fond, x1, y1, 0, 0, SCREEN_W, SCREEN_H);
+    blit(sommet2, fond, x2, y2, 0, 0, SCREEN_W, SCREEN_H);
+    fastline(fond,x1,y1,x2,y2,makecol(0,0,255));
+    fastline(fond,x2-10,y2-11,x2,y2,makecol(0,0,255));
+    fastline(fond,x2-10,y2+11,x2,y2,makecol(0,0,255));
+}
+
+void Graphe::tracergraphe()
+{
+    BITMAP *fond;
+    BITMAP *sommet1;
+    BITMAP *sommet2;
+    std::string nom;
+    int x, y;
+
+    for(int i=0; i<getnbaretes(); i++)
+    {
+        nom = "images/" + getaretes()[i].gets1().getnom() + ".bmp" ;
+        x = getaretes()[i].gets1().getx();
+        y = getaretes()[i].gets1().gety();
+
+        std::cout << nom << std::endl;
+        sommet1 = load_bitmap(nom.c_str() , NULL);
+        blit(sommet1, fond, 0 ,0,x,y, SCREEN_W, SCREEN_H);
+
+        nom = "images/" + getaretes()[i].gets2().getnom() + ".bmp" ;
+        std::cout << nom << std::endl;
+        sommet2 = load_bitmap(nom.c_str() , NULL);
+        blit(sommet2, fond, 0,0,x,y, SCREEN_W, SCREEN_H);
+
+    }
+
+    //blit()
+
+    /**BITMAP*sommet1;
+    std::string nom;
+for(int i=0; i<a.getnbaretes(); i++)
+    {
+        nom = "images/" + a.getaretes()[i].gets1().getnom() + ".bmp" ;
+                        std::cout << "coco" << std::endl;
+
+        sommet1 = load_bitmap(nom.c_str() , NULL);
+                std::cout << nom << std::endl;
+
+        blit(sommet1, screen, 0,0,0,0, SCREEN_W, SCREEN_H);
+        sommet1=load_bitmap((getaretes()[i].gets1().getnom() + ".bmp").c_str(),NULL);
+        blit(sommet1, screen, getaretes()[i].gets1().getx(), getaretes()[i].gets1().gety(), 0 , 0 , SCREEN_W, SCREEN_H);
+        sommet2=load_bitmap((getaretes()[i].gets2().getnom() + ".bmp").c_str(),NULL);
+        tracerarete(fond,sommet1,sommet2);
+
+    }**/
+}

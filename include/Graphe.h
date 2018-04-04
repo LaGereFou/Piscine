@@ -20,6 +20,8 @@ class Graphe
         ///Fonctions
         void recuperation();
         void sauvegarde();
+        void tracergraphe(BITMAP *fond);
+        void tracerarete(BITMAP *fond, BITMAP *sommet1, BITMAP *sommet2);
 
 
     private:
